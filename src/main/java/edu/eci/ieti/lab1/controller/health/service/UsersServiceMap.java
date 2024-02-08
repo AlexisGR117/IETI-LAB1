@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UsersServiceMap implements UsersService {
 
     private final HashMap<String, User> users = new HashMap<>();

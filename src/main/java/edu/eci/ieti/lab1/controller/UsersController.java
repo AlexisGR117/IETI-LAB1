@@ -1,7 +1,7 @@
 package edu.eci.ieti.lab1.controller;
 
 import edu.eci.ieti.lab1.exception.UserNotFoundException;
-import edu.eci.ieti.lab1.repository.User;
+import edu.eci.ieti.lab1.model.User;
 import edu.eci.ieti.lab1.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

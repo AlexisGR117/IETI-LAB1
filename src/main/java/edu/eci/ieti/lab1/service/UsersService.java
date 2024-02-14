@@ -1,6 +1,6 @@
 package edu.eci.ieti.lab1.service;
 
-import edu.eci.ieti.lab1.repository.User;
+import edu.eci.ieti.lab1.model.User;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,16 +1,23 @@
-package edu.eci.ieti.lab1.repository;
+package edu.eci.ieti.lab1.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
+@Document("users")
 public class User {
 
-    private final String id;
-    private final Date createdAt;
+    @Id
+    private String id;
+    private Date createdAt;
     private String name;
     private String lastName;
     private String email;
 
+
     public User(String id, String name, String lastName, String email) {
+        super();
         this.id = id;
         this.name = name;
         this.lastName = lastName;

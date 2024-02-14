@@ -1,8 +1,8 @@
-package edu.eci.ieti.lab1.controller.health.controller;
+package edu.eci.ieti.lab1.controller;
 
-import edu.eci.ieti.lab1.controller.health.exception.UserNotFoundException;
-import edu.eci.ieti.lab1.controller.health.repository.User;
-import edu.eci.ieti.lab1.controller.health.service.UsersService;
+import edu.eci.ieti.lab1.exception.UserNotFoundException;
+import edu.eci.ieti.lab1.repository.User;
+import edu.eci.ieti.lab1.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,4 +1,4 @@
-package edu.eci.ieti.lab1.controller.health.exception;
+package edu.eci.ieti.lab1.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

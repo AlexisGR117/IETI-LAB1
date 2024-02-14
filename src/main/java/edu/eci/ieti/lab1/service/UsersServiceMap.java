@@ -1,6 +1,6 @@
-package edu.eci.ieti.lab1.controller.health.service;
+package edu.eci.ieti.lab1.service;
 
-import edu.eci.ieti.lab1.controller.health.repository.User;
+import edu.eci.ieti.lab1.repository.User;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

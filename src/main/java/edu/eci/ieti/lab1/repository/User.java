@@ -1,4 +1,4 @@
-package edu.eci.ieti.lab1.controller.health.repository;
+package edu.eci.ieti.lab1.repository;
 
 import java.util.Date;
 

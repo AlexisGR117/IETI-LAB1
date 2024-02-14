@@ -1,40 +1,54 @@
 package edu.eci.ieti.lab1.service;
 
 import edu.eci.ieti.lab1.model.User;
+import edu.eci.ieti.lab1.repository.UserRepository;
+import edu.eci.ieti.lab1.service.UsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class UsersServiceMap implements UsersService {
 
-    private final HashMap<String, User> users = new HashMap<>();
+    private final UserRepository userRepository;
 
-    @Override
-    public User save(User user) {
-        return users.put(user.getId(), user);
+    @Autowired
+    public UsersServiceMap(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+
+    @Override
     public Optional<User> findById(String id) {
-        return Optional.ofNullable(users.get(id));
+        return userRepository.findById(id);
     }
 
     @Override
     public List<User> all() {
-        return new ArrayList<>(users.values());
+        return userRepository.findAll();
     }
 
     @Override
     public void deleteById(String id) {
-        users.remove(id);
+        userRepository.deleteById(id);
     }
 
     @Override
     public User update(User user, String userId) {
-        return users.put(userId, user);
+        Optional<User> optionalUser = userRepository.findById(userId);
+        if (optionalUser.isPresent()) {
+            User userUpdate = optionalUser.get();
+            userUpdate.setName(user.getName());
+            userUpdate.setLastName(user.getEmail());
+            userUpdate.setLastName(user.getLastName());
+            return userRepository.save(userUpdate);
+        } return null;
     }
 }

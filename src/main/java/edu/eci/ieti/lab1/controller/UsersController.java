@@ -5,6 +5,8 @@ import edu.eci.ieti.lab1.model.User;
 import edu.eci.ieti.lab1.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
@@ -16,14 +18,17 @@ import java.util.Optional;
 public class UsersController {
 
     private final UsersService usersService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsersController(@Autowired UsersService usersService) {
+    public UsersController(@Autowired UsersService usersService, PasswordEncoder passwordEncoder) {
         this.usersService = usersService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody User user) {
         URI createdUserUri = URI.create("/v1/users/" + user.getId());
+        user.setPasswordHash(passwordEncoder.encode(user.getPasswordHash()));
         return ResponseEntity.created(createdUserUri).body(usersService.save(user));
     }
 

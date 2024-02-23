@@ -4,6 +4,7 @@ import edu.eci.ieti.lab1.model.User;
 import edu.eci.ieti.lab1.repository.UserRepository;
 import edu.eci.ieti.lab1.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,6 +29,11 @@ public class UsersServiceMap implements UsersService {
     @Override
     public Optional<User> findById(String id) {
         return userRepository.findById(id);
+    }
+
+    @Override
+    public Optional<User> findByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
